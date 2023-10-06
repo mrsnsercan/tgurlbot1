@@ -12,7 +12,6 @@ from translation import Translation
 from pyrogram import Client, filters
 from pyrogram.enums import MessageEntityType, ChatAction
 from config import AUTH_CHANNEL, LOG_CHANNEL, DOWNLOAD_LOCATION, CHUNK_SIZE, DEF_THUMB_NAIL_VID_S, HTTP_PROXY, MOLY_LINKLERI
-
 from functions.progress import humanbytes
 from functions.aiohttp import DownLoadFile
 from functions.forcesub import handle_force_subscribe
