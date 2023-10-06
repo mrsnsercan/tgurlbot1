@@ -271,9 +271,6 @@ async def yt_dlp_call_back(bot, update):
     if ".space" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
-    if "gomindex" in yt_dlp_url:
-        command_to_exec.append("--referer")
-        command_to_exec.append("https://play.dizigom.tv/")
     if ".lat" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
@@ -283,6 +280,9 @@ async def yt_dlp_call_back(bot, update):
     if "closeload" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://closeload.com/")
+    if "tedmosby3" in yt_dlp_url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("dzyco.xyz")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
