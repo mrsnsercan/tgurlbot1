@@ -193,6 +193,9 @@ async def echo(bot, update):
     if "tedmosby3" in url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://www.dzyco.xyz/")
+    if "be4242" in url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("https://filemoon.sx/d/ibk2bab1zz8u/5054973867-1.mp4") 
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
