@@ -282,7 +282,7 @@ async def yt_dlp_call_back(bot, update):
         command_to_exec.append("https://closeload.com/")
     if "tedmosby3" in yt_dlp_url:
         command_to_exec.append("--referer")
-        command_to_exec.append("dzyco.xyz")
+        command_to_exec.append("https://www.dzyco.xyz/")
     if "be4242" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://filemoon.sx/d/ibk2bab1zz8u/5054973867-1.mp4") 
