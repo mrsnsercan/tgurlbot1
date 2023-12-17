@@ -174,7 +174,7 @@ async def echo(bot, update):
         command_to_exec.append("https://vidmoly.to/")
     if "gomindex" in url:
         command_to_exec.append("--referer")
-        command_to_exec.append("https://play.dizigom.tv/")
+        command_to_exec.append("https://play.dizigom1.com/")
     if ".lat" in url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
