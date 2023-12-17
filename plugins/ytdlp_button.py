@@ -274,7 +274,7 @@ async def yt_dlp_call_back(bot, update):
     if ".lat" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
-    if "dizigom" in yt_dlp_url:
+    if "gomindex" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://play.dizigom1.com/")
     if "https://upstreamcdn.co" in yt_dlp_url:
