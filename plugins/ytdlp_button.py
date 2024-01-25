@@ -286,9 +286,12 @@ async def yt_dlp_call_back(bot, update):
     if "tedmosby3" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://www.dzyco.xyz/")
-    if "be4242" in yt_dlp_url:
+    if "rapidrame" in yt_dlp_url:
         command_to_exec.append("--referer")
-        command_to_exec.append("https://filemoon.sx/d/ibk2bab1zz8u/5054973867-1.mp4") 
+        command_to_exec.append("https://www.hdfilmcehennemi.fun/")
+    if "hydra" in yt_dlp_url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("https://diziwatch.net/")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
