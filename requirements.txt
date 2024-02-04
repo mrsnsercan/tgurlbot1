@@ -10,7 +10,7 @@ TgCrypto
 motor
 dnspython
 ffmpeg
-git+https://github.com/ali-mmagneto/gerek01
+yt-dlp
 git+https://github.com/ali-mmagneto/gerek02
 python-dotenv
 pyrogram
