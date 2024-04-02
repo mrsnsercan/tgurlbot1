@@ -38,7 +38,7 @@ async def dosyasil(dosyaYolu, message, silinecekler):
         except Exception as hata:
             await message.reply_text(hata)
 
-@Client.on_message(filters.command('diskisil'))
+@Client.on_message(filters.command('diskiy'))
 async def deldirecttory(bot, message):
     try:
         silinecekler = []
