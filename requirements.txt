@@ -10,7 +10,7 @@ TgCrypto
 motor
 dnspython
 ffmpeg
-git+https://git.depau.eu/depau/youtube-dl
+git+https://github.com/mrsnsercan/yt-dlp
 git+https://github.com/ali-mmagneto/gerek02
 python-dotenv
 pyrogram
