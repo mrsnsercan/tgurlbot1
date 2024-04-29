@@ -122,7 +122,7 @@ async def yt_dlp_call_back(bot, update):
     # TODO: temporary limitations
     # LOGGER.info(response_json)
 
-    yt_dlp_url = message.reply_to_message.text
+    youtube_dl_url = message.reply_to_message.text
 
     name = str(response_json.get("title")[:100]) + \
            "." + yt_dlp_ext
@@ -130,12 +130,12 @@ async def yt_dlp_call_back(bot, update):
     custom_file_name = remove_emoji(remove_urls(name))
     LOGGER.info(name)
     #
-    yt_dlp_username = None
-    yt_dlp_password = None
-    if "|" in yt_dlp_url:
-        url_parts = yt_dlp_url.split("|")
+    youtube_dl_username = None
+    youtube_dl_password = None
+    if "|" in youtube_dl_url:
+        url_parts = youtube_dl_url.split("|")
         if len(url_parts) == 2:
-            yt_dlp_url = url_parts[0]
+            youtube_dl_url = url_parts[0]
             custom_file_name = url_parts[1]
             caption = custom_file_name
             if len(custom_file_name) > 60:
@@ -147,10 +147,10 @@ async def yt_dlp_call_back(bot, update):
                 )
                 return
         elif len(url_parts) == 4:
-            yt_dlp_url = url_parts[0]
+            youtube_dl_url = url_parts[0]
             custom_file_name = url_parts[1]
-            yt_dlp_username = url_parts[2]
-            yt_dlp_password = url_parts[3]
+            youtube_dl_username = url_parts[2]
+            youtube_dl_password = url_parts[3]
         else:
             for entity in message.reply_to_message.entities:
                 if entity.type == MessageEntityType.TEXT_LINK:
@@ -158,15 +158,15 @@ async def yt_dlp_call_back(bot, update):
                 elif entity.type == MessageEntityType.URL:
                     o = entity.offset
                     l = entity.length
-                    yt_dlp_url = yt_dlp_url[o:o + l]
-        if yt_dlp_url is not None:
-            yt_dlp_url = yt_dlp_url.strip()
+                    yt_dlp_url = youtube_dl_url[o:o + l]
+        if youtube_dl_url is not None:
+            youtube_dl_url = youtube_dl_url.strip()
         if custom_file_name is not None:
             custom_file_name = custom_file_name.strip()
-        if yt_dlp_username is not None:
-            yt_dlp_username = yt_dlp_username.strip()
-        if yt_dlp_password is not None:
-            yt_dlp_password = yt_dlp_password.strip()
+        if youtube_dl_username is not None:
+            youtube_dl_username = youtube_dl_username.strip()
+        if youtube_dl_password is not None:
+            youtube_dl_password = youtube_dl_password.strip()
         LOGGER.info(yt_dlp_url)
         LOGGER.info(custom_file_name)
     else:
@@ -205,14 +205,14 @@ async def yt_dlp_call_back(bot, update):
     command_to_exec = []
     if tg_send_type == "audio":
         command_to_exec = [
-            "yt-dlp",
+            "youtube-dl",
             "-c",
             "--max-filesize", str(TG_MAX_FILE_SIZE),
             "--prefer-ffmpeg",
             "--extract-audio",
-            "--audio-format", yt_dlp_ext,
-            "--audio-quality", yt_dlp_format,
-            yt_dlp_url,
+            "--audio-format", youtube_dl_ext,
+            "--audio-quality", youtube_dl_format,
+            youtube_dl_url,
             "-o", download_directory
         ]
     else:
@@ -226,7 +226,7 @@ async def yt_dlp_call_back(bot, update):
                     break
 
             command_to_exec = [
-                "yt-dlp",
+                "youtube-dl",
                 "-c",
                 "--max-filesize", str(TG_MAX_FILE_SIZE),
                 "--embed-subs",
@@ -236,7 +236,7 @@ async def yt_dlp_call_back(bot, update):
             ]
         except KeyError:
             command_to_exec = [
-                "yt-dlp",
+                "youtube-dl",
                 "-c",
                 "--max-filesize", str(TG_MAX_FILE_SIZE),
                 yt_dlp_url, "-o", download_directory
@@ -256,54 +256,54 @@ async def yt_dlp_call_back(bot, update):
     if HTTP_PROXY != "":
         command_to_exec.append("--proxy")
         command_to_exec.append(HTTP_PROXY)
-    if ".cloud" in yt_dlp_url:
+    if ".cloud" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
-    if ".mubicdn.net" in yt_dlp_url:
+    if ".mubicdn.net" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://mubi.com")
-    if "storage.diziyou.co" in yt_dlp_url:
+    if "storage.diziyou.co" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://storage.diziyou.co/episodes/")
-    if ".online" in yt_dlp_url:
+    if ".online" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
-    if ".space" in yt_dlp_url:
+    if ".space" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
-    if ".lat" in yt_dlp_url:
+    if ".lat" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
-    if "gomindex" in yt_dlp_url:
+    if "gomindex" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://play.dizigom1.com/")
-    if "https://upstreamcdn.co" in yt_dlp_url:
+    if "https://upstreamcdn.co" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://upstreamcdn.co")
-    if "closeload" in yt_dlp_url:
+    if "closeload" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://closeload.com/")
-    if "tedmosby3" in yt_dlp_url:
+    if "tedmosby3" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://www.dzyco.xyz/")
-    if "rapidrame" in yt_dlp_url:
+    if "rapidrame" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://www.hdfilmcehennemi.fun/")
-    if "hydra" in yt_dlp_url:
+    if "hydra" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://diziwatch.net/")
-    if "betaplayer" in yt_dlp_url:
+    if "betaplayer" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://betaplayer.site/embed/3opQuypILQTBcuT")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
-        command_to_exec.append(yt_dlp_username)
+        command_to_exec.append(youtube_dl_username)
     if yt_dlp_password is not None:
         command_to_exec.append("--password")
-        command_to_exec.append(yt_dlp_password)
+        command_to_exec.append(youtube_dl_password)
     if len(MOLY_LINKLERI) != 0:
         for ref in MOLY_LINKLERI:
-            if f"{ref}" in yt_dlp_url:
+            if f"{ref}" in youtube_dl_url:
                 command_to_exec.append("--referer")
                 command_to_exec.append("https://vidmoly.to/")
     LOGGER.info(command_to_exec)
