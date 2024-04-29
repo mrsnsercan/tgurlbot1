@@ -131,7 +131,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
     elif cb.data == "close":
         await message.delete(True)
     elif "|" in cb.data:
-        await yt_dlp_call_back(c, cb)
+        await youtube_dl_call_back(c, cb)
     elif "=" in cb.data:
         await ddl_call_back(c, cb)
     else:
