@@ -80,9 +80,9 @@ async def readlines(stream):
 
         data.extend(await stream.read(1024 * 1024))
 
-async def yt_dlp_call_back(bot, update):
+async def youtube_dl_call_back(bot, update):
     cb_data = update.data
-    tg_send_type, yt_dlp_format, yt_dlp_ext, random = cb_data.split("|")
+    tg_send_type, youtube_dl_format, youtube_dlp_ext, random = cb_data.split("|")
 
     dtime = str(time.time())
     
@@ -108,7 +108,7 @@ async def yt_dlp_call_back(bot, update):
     LOGGER.info(save_ytdl_json_path)
 
     try:
-        with open(save_ytdl_json_path, "r", encoding="utf8") as f:
+        with open(save_youtubedl_json_path, "r", encoding="utf8") as f:
             response_json = json.load(f)
     except FileNotFoundError as e:
         await bot.delete_messages(
@@ -125,7 +125,7 @@ async def yt_dlp_call_back(bot, update):
     youtube_dl_url = message.reply_to_message.text
 
     name = str(response_json.get("title")[:100]) + \
-           "." + yt_dlp_ext
+           "." + youtube_dl_ext
 
     custom_file_name = remove_emoji(remove_urls(name))
     LOGGER.info(name)
@@ -154,11 +154,11 @@ async def yt_dlp_call_back(bot, update):
         else:
             for entity in message.reply_to_message.entities:
                 if entity.type == MessageEntityType.TEXT_LINK:
-                    yt_dlp_url = entity.url
+                    youtube_dl_url = entity.url
                 elif entity.type == MessageEntityType.URL:
                     o = entity.offset
                     l = entity.length
-                    yt_dlp_url = youtube_dl_url[o:o + l]
+                    youtube_dl_url = youtube_dl_url[o:o + l]
         if youtube_dl_url is not None:
             youtube_dl_url = youtube_dl_url.strip()
         if custom_file_name is not None:
@@ -167,7 +167,7 @@ async def yt_dlp_call_back(bot, update):
             youtube_dl_username = youtube_dl_username.strip()
         if youtube_dl_password is not None:
             youtube_dl_password = youtube_dl_password.strip()
-        LOGGER.info(yt_dlp_url)
+        LOGGER.info(youtube_dl_url)
         LOGGER.info(custom_file_name)
     else:
         if "fulltitle" in response_json:
@@ -182,11 +182,11 @@ async def yt_dlp_call_back(bot, update):
                 caption = title
         for entity in message.reply_to_message.entities:
             if entity.type == MessageEntityType.TEXT_LINK:
-                yt_dlp_url = entity.url
+                youtube_dl_url = entity.url
             elif entity.type == MessageEntityType.URL:
                 o = entity.offset
                 l = entity.length
-                yt_dlp_url = yt_dlp_url[o:o + l]
+                youtube_dl_url = youtube_dl_url[o:o + l]
 
     await bot.edit_message_text(
         text=Translation.DOWNLOAD_START.format(custom_file_name),
@@ -219,10 +219,10 @@ async def yt_dlp_call_back(bot, update):
         try:
             for for_mat in response_json["formats"]:
                 format_id = for_mat.get("format_id")
-                if format_id == yt_dlp_format:
+                if format_id == youtube_dl_format:
                     acodec = for_mat.get("acodec")
                     if acodec == "none":
-                        yt_dlp_format += "+bestaudio"
+                        youtube_dl_format += "+bestaudio"
                     break
 
             command_to_exec = [
@@ -239,7 +239,7 @@ async def yt_dlp_call_back(bot, update):
                 "youtube-dl",
                 "-c",
                 "--max-filesize", str(TG_MAX_FILE_SIZE),
-                yt_dlp_url, "-o", download_directory
+                youtube_dl_url, "-o", download_directory
             ]
 
     if await db.get_aria2(user_id) is True:
@@ -334,7 +334,7 @@ async def yt_dlp_call_back(bot, update):
     if t_response:
         # LOGGER.info(t_response)
         try:
-            os.remove(save_ytdl_json_path)
+            os.remove(save_youtubedl_json_path)
         except FileNotFoundError as exc:
             pass
 
