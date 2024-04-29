@@ -3,7 +3,7 @@ from pyrogram import Client, types
 from translation import Translation
 from plugins.dl_button import ddl_call_back
 from functions.settings import Settings, Login, Filters
-from plugins.ytdlp_button import yt_dlp_call_back
+from plugins.ytdlp_button import youtube_dl_call_back
 from pyrogram.enums import ParseMode
 
 import logging
