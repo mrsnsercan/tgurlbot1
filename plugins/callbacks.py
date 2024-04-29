@@ -3,7 +3,7 @@ from pyrogram import Client, types
 from translation import Translation
 from plugins.dl_button import ddl_call_back
 from functions.settings import Settings, Login, Filters
-from plugins.ytdlp_button import youtube_dl_call_back
+from plugins.ytdlp_button import yt_dlp_call_back
 from pyrogram.enums import ParseMode
 
 import logging
@@ -131,7 +131,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
     elif cb.data == "close":
         await message.delete(True)
     elif "|" in cb.data:
-        await youtube_dl_call_back(c, cb)
+        await yt_dlp_call_back(c, cb)
     elif "=" in cb.data:
         await ddl_call_back(c, cb)
     else:
