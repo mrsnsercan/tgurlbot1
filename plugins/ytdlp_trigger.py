@@ -97,8 +97,8 @@ async def echo(bot, update):
     LOGGER.info(update.from_user)
     url = update.text
 
-    yt_dlp_username = None
-    yt_dlp_password = None
+    youtube_dl_username = None
+    youtube_dl_password = None
     file_name = None
     random = str(time.time())
 
@@ -125,9 +125,9 @@ async def echo(bot, update):
         if file_name is not None:
             file_name = file_name.strip()
         if yt_dlp_username is not None:
-            yt_dlp_username = yt_dlp_username.strip()
+            yt_dlp_username = youtube_dl_username.strip()
         if yt_dlp_password is not None:
-            yt_dlp_password = yt_dlp_password.strip()
+            yt_dlp_password = youtube_dl_password.strip()
         LOGGER.info(url)
         LOGGER.info(file_name)
     else:
