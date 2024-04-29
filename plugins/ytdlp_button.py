@@ -230,8 +230,8 @@ async def youtube_dl_call_back(bot, update):
                 "-c",
                 "--max-filesize", str(TG_MAX_FILE_SIZE),
                 "--embed-subs",
-                "-f", yt_dlp_format,
-                "--hls-prefer-ffmpeg", yt_dlp_url,
+                "-f", youtube_dl_format,
+                "--hls-prefer-ffmpeg", youtube_dl_url,
                 "-o", download_directory
             ]
         except KeyError:
@@ -295,10 +295,10 @@ async def youtube_dl_call_back(bot, update):
     if "betaplayer" in youtube_dl_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://betaplayer.site/embed/3opQuypILQTBcuT")
-    if yt_dlp_username is not None:
+    if youtube_dl_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(youtube_dl_username)
-    if yt_dlp_password is not None:
+    if youtube_dl_password is not None:
         command_to_exec.append("--password")
         command_to_exec.append(youtube_dl_password)
     if len(MOLY_LINKLERI) != 0:
