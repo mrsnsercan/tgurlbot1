@@ -140,7 +140,7 @@ async def echo(bot, update):
                 url = url[o:o + l]
     if HTTP_PROXY != "":
         command_to_exec = [
-            "yt-dlp",
+            "youtube-dl",
             "--no-warnings",
             "--youtube-skip-dash-manifest",
             "--no-check-certificate",
@@ -150,7 +150,7 @@ async def echo(bot, update):
         ]
     else:
         command_to_exec = [
-            "yt-dlp",
+            "youtube-dl",
             "--no-warnings",
             "--external-downloader","aria2c", 
             "--no-check-certificate",
@@ -201,10 +201,10 @@ async def echo(bot, update):
         command_to_exec.append("https://betaplayer.site/embed/3opQuypILQTBcuT")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
-        command_to_exec.append(yt_dlp_username)
+        command_to_exec.append(youtube_dl_username)
     if yt_dlp_password is not None:
         command_to_exec.append("--password")
-        command_to_exec.append(yt_dlp_password)
+        command_to_exec.append(youtube_dl_password)
     if len(MOLY_LINKLERI) != 0:
         for ref in MOLY_LINKLERI:
             if f"{ref}" in url:
