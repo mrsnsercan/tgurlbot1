@@ -103,9 +103,9 @@ async def youtube_dl_call_back(bot, update):
 
     thumb_image_path = DOWNLOAD_LOCATION + \
                        "/" + str(user_id) + f'{random}' + ".jpg"
-    save_ytdl_json_path = DOWNLOAD_LOCATION + \
+    save_youtubedl_json_path = DOWNLOAD_LOCATION + \
                           "/" + str(user_id) + f'{random}' + ".json"
-    LOGGER.info(save_ytdl_json_path)
+    LOGGER.info(save_youtubedl_json_path)
 
     try:
         with open(save_youtubedl_json_path, "r", encoding="utf8") as f:
