@@ -199,10 +199,10 @@ async def echo(bot, update):
     if "betaplayer" in url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://betaplayer.site/embed/3opQuypILQTBcuT")
-    if yt_dlp_username is not None:
+    if youtube_dl_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(youtube_dl_username)
-    if yt_dlp_password is not None:
+    if youtube_dl_password is not None:
         command_to_exec.append("--password")
         command_to_exec.append(youtube_dl_password)
     if len(MOLY_LINKLERI) != 0:
@@ -249,7 +249,7 @@ async def echo(bot, update):
         else:
             response_json.append(json.loads(x_reponse))
         # response_json = json.loads(x_reponse)
-        save_ytdl_json_path = os.path.join(
+        save_youtubedl_json_path = os.path.join(
             DOWNLOAD_LOCATION,
             str(update.from_user.id) + random + ".json"
         )
