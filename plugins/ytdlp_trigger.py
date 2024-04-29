@@ -253,7 +253,7 @@ async def echo(bot, update):
             DOWNLOAD_LOCATION,
             str(update.from_user.id) + random + ".json"
         )
-        with open(save_ytdl_json_path, "w", encoding="utf8") as outfile:
+        with open(save_youtubedl_json_path, "w", encoding="utf8") as outfile:
             json.dump(response_json, outfile, ensure_ascii=False)
         # LOGGER.info(response_json)
         inline_keyboard = []
