@@ -110,8 +110,8 @@ async def echo(bot, update):
         elif len(url_parts) == 4:
             url = url_parts[0]
             file_name = url_parts[1]
-            yt_dlp_username = url_parts[2]
-            yt_dlp_password = url_parts[3]
+            youtube_dl_username = url_parts[2]
+            youtube_dl_password = url_parts[3]
         else:
             for entity in update.entities:
                 if entity.type == MessageEntityType.TEXT_LINK:
@@ -124,9 +124,9 @@ async def echo(bot, update):
             url = url.strip()
         if file_name is not None:
             file_name = file_name.strip()
-        if yt_dlp_username is not None:
+        if youtube_dl_username is not None:
             yt_dlp_username = youtube_dl_username.strip()
-        if yt_dlp_password is not None:
+        if youtube_dl_password is not None:
             yt_dlp_password = youtube_dl_password.strip()
         LOGGER.info(url)
         LOGGER.info(file_name)
