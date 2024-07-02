@@ -1,15 +1,17 @@
-FROM python:latest
+FROM python:3.10-slim-buster
 
-RUN apt update && apt upgrade -y
-RUN apt install git curl python3-pip ffmpeg -y
+WORKDIR /app
 
-RUN cd /
-RUN git clone https://github.com/mrsnsercan/tgurlbot1.git
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends git curl ffmpeg && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN cd /KitapBot
-WORKDIR /KitapBot
+COPY requirements.txt .
 
-RUN pip3 install -U pip
-RUN pip3 install -U -r requirements.txt
+RUN pip install --no-cache-dir -U pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-CMD python3 bot.py
+COPY . .
+
+CMD ["python3", "bot.py"]
