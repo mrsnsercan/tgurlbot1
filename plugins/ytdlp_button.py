@@ -554,6 +554,11 @@ async def yt_dlp_call_back(bot, update):
                     return
 
                 end_two = datetime.now()
+                try:
+                    os.remove(download_directory)
+                    os.remove(thumb_image_path)
+                except:
+                    pass
                 time_taken_for_upload = (end_two - end_one).seconds
                 media_album_p = []
                 try:
@@ -708,6 +713,11 @@ async def yt_dlp_call_back(bot, update):
                 return
 
                 end_two = datetime.now()
+                try:
+                    os.remove(download_directory)
+                    os.remove(thumb_image_path)
+                except:
+                    pass
                 time_taken_for_upload = (end_two - end_one).seconds
                 media_album_p = []
                 if (await db.get_generate_ss(user_id)) is True:
