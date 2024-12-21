@@ -322,8 +322,8 @@ async def yt_dlp_call_back(bot, update):
         stderr=asyncio.subprocess.PIPE,
     )
     await asyncio.wait([
-            read_stdera(start1, process, bot, message_id, chat_id),
-            process.wait(),
+            asyncio.create_task(read_stdera(start1, process, bot, message_id, chat_id)),
+            asyncio.create_task(process.wait()),
         ])
     # Wait for the subprocess to finish
     stdout, stderr = await process.communicate()
