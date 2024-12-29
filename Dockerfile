@@ -1,7 +1,5 @@
 FROM python:3.10.12
 
-WORKDIR /app
-
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends git curl ffmpeg aria2 && \
     apt-get clean && \
