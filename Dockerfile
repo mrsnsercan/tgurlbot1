@@ -1,10 +1,10 @@
 FROM python:3.10.12
 
 # Gerekli bağımlılıkları yükleme
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends git curl ffmpeg aria2 && \
+RUN apt-get install -y --no-install-recommends ffmpeg aria2 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
 
 # Çalışma dizinini ayarla
 WORKDIR /root/tyler/urlbot
