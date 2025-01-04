@@ -7,7 +7,7 @@ RUN apt-get update && apt-get upgrade -y && \
     rm -rf /var/lib/apt/lists/*
 
 # Çalışma dizinini ayarla
-WORKDIR /root/tgurlbot1
+WORKDIR /root/tyler/urlbot
 
 # Gereksinim dosyasını kopyala ve bağımlılıkları yükle
 COPY requirements.txt .
