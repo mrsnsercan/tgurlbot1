@@ -160,6 +160,9 @@ async def echo(bot, update):
     if ".online" in url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
+    if "master" in url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("https://closeload.filmmakinesi.film/")
     if "storage.diziyou.co" in url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://storage.diziyou.co/episodes/")
@@ -195,10 +198,13 @@ async def echo(bot, update):
         command_to_exec.append("https://www.dzyco.xyz/")
     if "rapidrame" in url:
         command_to_exec.append("--referer")
-        command_to_exec.append("https://www.hdfilmcehennemi.fun/") 
-    if "betaplayer" in url:
+        command_to_exec.append("https://www.hdfilmcehennemi.fun/")
+    if "ep-distribution" in url:
         command_to_exec.append("--referer")
-        command_to_exec.append("https://betaplayer.site/embed/3opQuypILQTBcuT")
+        command_to_exec.append("https://miraculous.to/")
+    if "wdtp.site" in url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("https://webdramaturkey.net/")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)

@@ -259,6 +259,9 @@ async def yt_dlp_call_back(bot, update):
     if ".cloud" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
+    if "master" in yt_dlp_url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("https://closeload.filmmakinesi.film/")
     if ".mubicdn.net" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://mubi.com")
@@ -292,9 +295,12 @@ async def yt_dlp_call_back(bot, update):
     if "hydra" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://diziwatch.net/")
-    if "betaplayer" in yt_dlp_url:
+    if "ep-distribution" in yt_dlp_url:
         command_to_exec.append("--referer")
-        command_to_exec.append("https://betaplayer.site/embed/3opQuypILQTBcuT")
+        command_to_exec.append("https://miraculous.to/")
+    if "wdtp.site" in yt_dlp_url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("https://webdramaturkey.net/")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
@@ -555,8 +561,7 @@ async def yt_dlp_call_back(bot, update):
 
                 end_two = datetime.now()
                 try:
-                    os.remove(download_directory)
-                    os.remove(thumb_image_path)
+                     os.remove(download_directory)
                 except:
                     pass
                 time_taken_for_upload = (end_two - end_one).seconds
@@ -694,8 +699,7 @@ async def yt_dlp_call_back(bot, update):
                     pass
                 end_two = datetime.now()
                 try:
-                    os.remove(download_directory)
-                    os.remove(thumb_image_path)
+                     os.remove(download_directory)
                 except:
                     pass
                 time_taken_for_upload = (end_two - end_one).seconds
@@ -715,7 +719,6 @@ async def yt_dlp_call_back(bot, update):
                 end_two = datetime.now()
                 try:
                     os.remove(download_directory)
-                    os.remove(thumb_image_path)
                 except:
                     pass
                 time_taken_for_upload = (end_two - end_one).seconds
