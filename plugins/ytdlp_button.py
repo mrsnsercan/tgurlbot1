@@ -289,12 +289,12 @@ async def yt_dlp_call_back(bot, update):
     if "rapidrame" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://www.hdfilmcehennemi.fun/")
-    if "hydra" in yt_dlp_url:
+    if "rectv2024live" in yt_dlp_url:
         command_to_exec.append("--referer")
-        command_to_exec.append("https://diziwatch.net/")
-    if "betaplayer" in yt_dlp_url:
-        command_to_exec.append("--referer")
-        command_to_exec.append("https://betaplayer.site/embed/3opQuypILQTBcuT")
+        command_to_exec.append("https://twitter.com/")
+    if "rectv2024live" in yt_dlp_url:
+        command_to_exec.append("--user-agent")
+        command_to_exec.append("googleusercontent")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
