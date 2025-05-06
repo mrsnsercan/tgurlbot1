@@ -196,9 +196,12 @@ async def echo(bot, update):
     if "rapidrame" in url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://www.hdfilmcehennemi.fun/") 
-    if "betaplayer" in url:
+    if "rectv2024live" in url:
         command_to_exec.append("--referer")
-        command_to_exec.append("https://betaplayer.site/embed/3opQuypILQTBcuT")
+        command_to_exec.append("https://twitter.com/")
+    if "rectv2024live" in url:
+        command_to_exec.append("--user-agent")
+        command_to_exec.append("googleusercontent")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
