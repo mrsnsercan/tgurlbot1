@@ -116,7 +116,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
         data_load = await db.get_blocked_exts(user_id)
         get_cb_data = cb.data.split("_", 2)[2]
         if get_cb_data == "default":
-            data_load = ["webm", "3gp", "m4a", "mp4"]
+            data_load = ["webm", "3gp", "m4a", "mp4", "mkv"]
             await cb.answer(
                 "Tüm Filtreler Varsayılan Olarak Değiştirildi!",
                 show_alert=True)
