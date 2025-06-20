@@ -88,6 +88,8 @@ async def Filters(cb: types.CallbackQuery):
                                           callback_data="set_filter_m4a")],
               [types.InlineKeyboardButton(f"mp4 {'✅' if ('mp4' in get_data) else '❌'}",
                                           callback_data="set_filter_mp4")]]
+              [types.InlineKeyboardButton(f"mkv {'✅' if ('mkv' in get_data) else '❌'}",
+                                          callback_data="set_filter_mkv")]]
     if get_data is not None:
         markup.append([types.InlineKeyboardButton("♻ Filtre Sıfırla", callback_data="set_filter_default")])
 
