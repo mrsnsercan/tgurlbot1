@@ -11,7 +11,7 @@ TgCrypto
 motor
 dnspython
 ffmpeg
-yt-dlp==2023.10.13
+yt-dlp
 git+https://github.com/ali-mmagneto/gerek02
 python-dotenv
 pyrogram
